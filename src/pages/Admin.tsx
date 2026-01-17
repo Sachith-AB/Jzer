@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 import MainLayout from '../components/MainLayout';
 import Title from '../components/Title';
 import Button from '../components/Button';
@@ -31,20 +30,13 @@ export default function Admin() {
         }
         setUploadStatus({ 
             type: 'success', 
-            message: `Video "${selectedFile.name}" ready to upload!` 
+            message: `Video "${selectedFile.name}" successfully uploaded!` 
         });
-        toast.success(`Video "${selectedFile.name}" successfully uploaded!`, {
-            position: 'top-right',
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-        });
+        toast.success('video uploaded');
         setTimeout(() => {
             setSelectedFile(null);
             setUploadStatus({ type: null, message: '' });
-        }, 3000);
+        }, 2000);
     };
 
     const handleRemoveFile = () => {
@@ -76,7 +68,6 @@ export default function Admin() {
                         
                         {/* File Input */}
                         <div className="mb-6 mt-4">
-                            <Title text="Select Video File" size="sm" color="primary" weight={500} />
                             <div className="relative border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer mt-3">
                                 <input
                                     type="file"
@@ -108,23 +99,6 @@ export default function Admin() {
                                 </div>
                             )}
                         </div>
-
-                        {/* Status Messages */}
-                        {uploadStatus.type && (
-                            <div className={`mb-6 p-4 rounded-lg flex items-center gap-3 ${
-                                uploadStatus.type === 'success' 
-                                    ? 'bg-green-50 text-green-800' 
-                                    : 'bg-red-50 text-red-800'
-                            }`}>
-                                {uploadStatus.type === 'success' ? (
-                                    <MdCheckCircle size={24} />
-                                ) : (
-                                    <MdError size={24} />
-                                )}
-                                <span>{uploadStatus.message}</span>
-                            </div>
-                        )}
-
                         {/* Upload Button */}
                         <div className="mt-6">
                             <Button
@@ -139,9 +113,6 @@ export default function Admin() {
                     </div>
                 </div>
             </MainLayout>
-
-            {/* Success Toast */}
-            <ToastContainer />
         </div>
     );
 }
