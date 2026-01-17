@@ -1,7 +1,15 @@
+import { Routes, Route } from 'react-router-dom';
 import CustomHeader from "./CustomHeader";
+import Home from './pages/Home';
 
 export default function App() {
   return (
-    <CustomHeader/>
+    <>
+      <CustomHeader />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </>
   )
 }
