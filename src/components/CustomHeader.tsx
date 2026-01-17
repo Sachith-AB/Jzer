@@ -1,5 +1,6 @@
-import logo from './assets/logo.jpeg'
+import logo from './../assets/logo.jpeg'
 import { Link, useLocation } from 'react-router-dom'
+import MainLayout from './MainLayout'
 
 export default function CustomHeader() {
     const navLinks = ['Home', 'About', 'Contact', 'Services']
@@ -7,7 +8,7 @@ export default function CustomHeader() {
     
     return (
         <div className="w-screen bg-primary text-white">
-            <div className="px-4 md:px-8 lg:px-16">
+            <MainLayout>
                 <div className="flex items-center justify-between py-4">
                     {/* Left side - Logo */}
                     <div className="flex items-center">
@@ -32,7 +33,7 @@ export default function CustomHeader() {
                         })}
                     </nav>
                 </div>
-            </div>
+            </MainLayout>
         </div>
     )
 }

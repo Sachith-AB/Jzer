@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import CustomHeader from "./CustomHeader";
+import CustomHeader from "./components/CustomHeader";
 import Home from './pages/Home';
 
 export default function App() {
