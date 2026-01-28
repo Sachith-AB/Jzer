@@ -19,7 +19,7 @@ export default function AdminDashboard() {
     const [videos, setVideos] = useState<Video[]>([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
-
+    
     useEffect(() => {
         fetchVideos()
     }, [])
@@ -35,7 +35,6 @@ export default function AdminDashboard() {
                 .list()
 
             if (fetchError) throw fetchError
-console.log(data)
 
             const videoList = (data || [])
                 .filter(file => !file.name.startsWith('.'))

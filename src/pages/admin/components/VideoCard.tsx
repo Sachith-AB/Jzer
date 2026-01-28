@@ -23,15 +23,16 @@ export default function VideoCard({
         <div className="bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200">
             {/* Video Preview */}
             <div className="relative w-full h-48 bg-black flex items-center justify-center">
-                {thumbnailUrl ? (
-                    <img 
-                        src={thumbnailUrl} 
-                        alt={title}
+                {videoUrl ? (
+                    <video 
+                        src={videoUrl}
+                        controls
                         className="w-full h-full object-cover"
+                        poster={thumbnailUrl}
                     />
                 ) : (
                     <div className="text-gray-500 text-center">
-                        <p>No thumbnail</p>
+                        <p>No video</p>
                     </div>
                 )}
             </div>
