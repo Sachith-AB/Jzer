@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import MainLayout from '../../components/MainLayout';
 import Title from '../../components/Title';
@@ -8,6 +9,7 @@ import { supabase } from '../../supabaseClient';
 import useIsMobile from '../../hooks/useIsMobile';
 
 export default function AdminUpload() {
+    const navigate = useNavigate();
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [isUploading, setIsUploading] = useState(false);
     const [uploadProgress, setUploadProgress] = useState(0);
@@ -102,6 +104,16 @@ export default function AdminUpload() {
                     <div className={isMobile ? 'mb-4' : 'mb-8'}>
                         <Title text="Admin Panel" size={isMobile ? 'dxl' : 'fvxl'} color="accent"  />
                         <Title text="Manage videos" size={isMobile ? 'sm' : 'base'} color="accent" weight={400}  />
+                    </div>
+
+                    {/* Navigation Button */}
+                    <div className={`mb-8 flex gap-4`}>
+                        <Button
+                            text="Go to Dashboard"
+                            variant="primary"
+                            size="lg"
+                            onClick={() => navigate("/admin-dashboard")}
+                        />
                     </div>
 
                     {/* Upload Section */}

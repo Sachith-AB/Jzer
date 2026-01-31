@@ -153,13 +153,6 @@ export default function AdminDashboard() {
                     />
                 ) : (
                     <>
-                        {/* Video Stats */}
-                        <div className="mb-6 p-4 bg-gray-900 rounded-lg">
-                            <p className="text-gray-300">
-                                <span className="font-semibold text-white">{videos.length}</span> video{videos.length !== 1 ? 's' : ''} found
-                            </p>
-                        </div>
-
                         {/* Videos Grid */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {videos.map((video) => (
